@@ -66,15 +66,15 @@ def main():
     # Title + subtitle (left). Vertical rhythm: 44px padding above the title
     # matches the 44px padding below the footer domain chip (maintainer review
     # 2026-10-18). Content band 44..586 (542px) split into even 58px gaps.
-    d.text((70, 32), "Academic Pages", font=f_title, fill=DARK)
-    d.text((70, 164), "A Jekyll theme for academic", font=f_sub, fill=GREY)
-    d.text((70, 258), "personal websites", font=f_sub, fill=GREY)
+    d.text((70, 32), "Huaiyuan Weng", font=f_title, fill=DARK)
+    d.text((70, 164), "Robotics & 3D Computer Vision", font=f_sub, fill=GREY)
+    d.text((70, 258), "Researcher", font=f_sub, fill=GREY)
 
     # separator
     d.line([70, 362, W - 70, 362], fill=(230, 230, 230), width=2)
 
     # content pills
-    pills = ["Publications", "Talks", "Teaching", "Portfolio", "CV"]
+    pills = ["Publications", "CV"]
     x = 70
     y = 422
     for p_ in pills:
@@ -87,9 +87,10 @@ def main():
         x += fw + 18
 
     # footer domain chip
-    d.textlength("academicpages.github.io", font=f_domain)  # measure
-    d.rounded_rectangle([70, H - 92, 592, H - 44], 24, fill=DARK)
-    d.text((104, H - 84), "academicpages.github.io", font=f_domain, fill=(255, 255, 255))
+    domain = "huuaiyuan.github.io"
+    dw = d.textlength(domain, font=f_domain)  # measure
+    d.rounded_rectangle([70, H - 92, 70 + dw + 68, H - 44], 24, fill=DARK)
+    d.text((104, H - 84), domain, font=f_domain, fill=(255, 255, 255))
 
     out = os.path.join(REPO_ROOT, "images", "og-image.png")
     img.save(out, "PNG")

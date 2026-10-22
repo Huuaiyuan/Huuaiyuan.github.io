@@ -1,0 +1,29 @@
+---
+layout: archive
+title: "Works"
+permalink: /works/
+author_profile: true
+redirect_from:
+  - /portfolio/
+---
+
+{% include base_path %}
+
+{% assign works = site.portfolio | sort: "order", "last" %}
+{% if works.size == 0 %}
+  <p>Coming soon.</p>
+{% else %}
+  {% for work in works %}
+  <section class="work">
+    <h2 class="work__title">{{ work.title }}</h2>
+    {% if work.images %}
+    <div class="work__images">
+      {% for img in work.images %}
+      <img src="{{ img.src | prepend: '/images/' | prepend: base_path }}" alt="{{ img.alt | escape }}" loading="lazy">
+      {% endfor %}
+    </div>
+    {% endif %}
+    <div class="work__body">{{ work.content }}</div>
+  </section>
+  {% endfor %}
+{% endif %}

@@ -36,7 +36,8 @@
     {% if post.read_time %}
       <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> {% include read-time.html %}</p>
     {% endif %}
-    {% if post.venue%}<p class="archive__item-excerpt" itemprop="description">{{ post.citation }}</p> {% endif %}
+    {% if post.citation %}<p class="archive__item-excerpt" itemprop="description">{{ post.citation }}</p>
+    {% elsif post.venue %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}<br />{{ post.status | default: "Published in" }} <i>{{ post.venue }}</i></p>{% endif %}
     </li>
  </article>
 </div>

@@ -1,0 +1,32 @@
+/* ==========================================================================
+   Works (one full section per work on /works/)
+   ========================================================================== */
+
+.work {
+  margin-bottom: 3em;
+
+  &__title {
+    margin-top: 0;
+  }
+
+  &__images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin-bottom: 1em;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--global-border-color);
+      border-radius: $border-radius;
+
+      @include breakpoint($small) {
+        width: auto;
+        max-width: 100%;
+        height: 320px;
+      }
+    }
+  }
+}
